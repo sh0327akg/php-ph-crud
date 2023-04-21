@@ -39,6 +39,9 @@
         <x-primary-button class="mt-4">
           編集する
         </x-primiary-button>
+        <a href="{{ route('post.show', $post) }}" class="mt-4 inline-flex items-center px-4 py-2 bg-gray-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+          キャンセル
+        </a>
           
       </form>
     </div>
