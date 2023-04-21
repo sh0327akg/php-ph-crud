@@ -46,7 +46,7 @@ class PostController extends Controller
             $post->image = $name;
         }
         $post->save();
-        return redirect()->route('post.create')->with('message', '投稿を作成しました');
+        return redirect()->route('post.index')->with('message', '投稿を作成しました');
     }
 
     /**
