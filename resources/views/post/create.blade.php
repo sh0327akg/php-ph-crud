@@ -4,9 +4,11 @@
           投稿の新規作成
       </h2>
   </x-slot>
+
   <x-message :message="session('message')"/>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-4 sm:p-8">
+      <x-input-error class="mb-4" :messages="$errors->all()"/>
       <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
       @csrf
         <div class="md:flex items-center mt-8">
