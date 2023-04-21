@@ -37,6 +37,9 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+                            新規作成
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -73,9 +76,6 @@
             <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
                 HOME
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
-                新規作成
-            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -88,6 +88,9 @@
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+                    新規作成
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
