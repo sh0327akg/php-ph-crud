@@ -10,10 +10,20 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(9);
+        $search = $request->input('search');
         $user = auth()->user();
+
+        if($search){
+            $posts = Post::where('title', 'like', "%{$search}%")
+                ->orWhere('body','like','%{$search}%')
+                ->orderBy('created_at', 'desc')->paginate(9)
+                ->appends(['search' => $search]);
+        }else{
+            $posts = Post::orderBy('created_at', 'desc')->paginate(9);
+        }
+        
         return view('post.index', compact('posts', 'user'));
     }
 
