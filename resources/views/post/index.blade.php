@@ -10,10 +10,12 @@
     @foreach ($posts as $post)
       <div class="p-4 md:w-1/3">
         <a href="{{ route('post.show', $post)}}">
-          <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+          <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white">
             <div class="lg:h-60 md:h-36 w-full overflow-hidden object-fill">
               @if($post->image)
                 <img src="{{ asset('storage/images/'.$post->image) }}" class="mx-auto object-center">
+              @else
+                <img src="{{ asset('images/default.jpg') }}" class="mx-auto object-center">
               @endif
             </div>
               <div class="p-6">
