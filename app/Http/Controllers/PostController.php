@@ -34,8 +34,8 @@ class PostController extends Controller
             'image' => 'image|max:1024'
         ]);
         $post = new Post();
-        $post->title = inputs['title'];
-        $post->body = inputs['body'];
+        $post->title = $inputs['title'];
+        $post->body = $inputs['body'];
         $post->user_id = auth()->user()->id;
         $post->save();
         return redirect()->route('post.create')->with('message', '投稿を作成しました');
