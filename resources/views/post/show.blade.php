@@ -29,13 +29,19 @@
         <div>
           <p class="mt-4 text-gray-600 py-4 whitespace-pre-line">{{$post->body}}</p>
           @if($post->image)
-            <img src="{{ asset('storage/images/'.$post->image) }}" class="mx-auto" style="height:300px;">
+            <img src="{{ asset('storage/images/'.$post->image) }}" class="mx-auto w-fit">
           @endif
           <div class="text-sm font-semibold flex flex-row-reverse">
               <p>by {{ $post->user->name }} | {{ $post->created_at->format('Y年m月d日') }}</p>
           </div>
         </div>
       </div>
+      <div class="w-full">
+        <a href="{{ route('post.index') }}" class="mt-4 inline-flex px-4 py-2 bg-gray-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+          一覧に戻る
+        </a>
+      </div>
     </div>
+    
   </div>
 </x-app-layout>
