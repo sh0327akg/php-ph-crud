@@ -7,7 +7,7 @@
     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
       <form method="GET" action="{{ route('post.index') }}" class="mb-4 items-center">
           <input type="text" name="search" placeholder="キーワードを入力" class="border border-gray-300 w-full md:mr-2 mb-2 md:mb-0" value="{{ request()->input('search') }}">
-          <button type="submit" class="bg-blue-500 text-white mt-3 px-6 py-2 w-full md:w-auto">検索</button>
+          <button type="submit" class="bg-orange-600 text-white mt-3 px-6 py-2 w-full md:w-auto">検索</button>
       </form>
     </div>
   </x-slot>
@@ -21,9 +21,9 @@
   {{-- 投稿一覧表示カード --}}
   <div class="max-w-7xl mx-auto px-4 flex flex-wrap sm:px-6 lg:px-8">
     @foreach ($posts as $post)
-      <div class="p-4 md:w-1/3">
+      <div class="p-4 w-full md:w-1/3">
         <a href="{{ route('post.show', $post)}}">
-          <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white">
+          <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-lg">
             <div class="lg:h-60 md:h-36 w-full overflow-hidden object-fill">
               @if($post->image)
                 <img src="{{ asset('storage/images/'.$post->image) }}" class="mx-auto object-center">
