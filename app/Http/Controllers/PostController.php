@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -49,11 +50,13 @@ class PostController extends Controller
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
         $post->user_id = auth()->user()->id;
-        if(request('image')){
-            $original = request()->file('image')->getClientOriginalName();
-            $name = date('Ymd_His').'_'.$original;
-            request()->file('image')->move('storage/images', $name);
-            $post->image = $name;
+        if ($request->file('image')){
+            //s3アップロード開始
+            $image = $request->file('image');
+            // バケットの`image`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('image', $image);
+            // アップロードした画像のフルパスを取得
+            $post->image = Storage::disk('s3')->url($path);
         }
         $post->save();
         return redirect()->route('post.index')->with('message', '投稿を作成しました');
@@ -87,11 +90,13 @@ class PostController extends Controller
         ]);
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
-        if(request('image')){
-            $original = request()->file('image')->getClientOriginalName();
-            $name = date('Ymd_His').'_'.$original;
-            $file = request()->file('image')->move('storage/images', $name);
-            $post->image = $name;
+        if ($request->file('image')){
+            //s3アップロード開始
+            $image = $request->file('image');
+            // バケットの`image`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('image', $image);
+            // アップロードした画像のフルパスを取得
+            $post->image = Storage::disk('s3')->url($path);
         }
 
         $post->save();

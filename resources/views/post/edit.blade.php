@@ -26,9 +26,9 @@
         <div class="w-full flex flex-col">
           @if($post->image)
             <div>
-              (画像ファイル：{{$post->image}})
+              画像ファイル：
             </div>
-            <img src="{{ asset('storage/images/'.$post->image)}}" class="mx-auto" style="height:300px;">
+            <img src="{{ $post->image }}" class="mx-auto" style="height:300px;">
           @endif
           <label for="image" class="font-semibold leading-none mt-4">画像（1MBまで）</label>
           <div>
