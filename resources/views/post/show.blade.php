@@ -31,7 +31,7 @@
         <div>
           <p class="mt-4 text-gray-600 py-4 whitespace-pre-line">{{$post->body}}</p>
           @if($post->image)
-            <img src="{{ $post->image }}" class="mx-auto w-fit">
+            <img src="{{ $post->image }}" class="mx-auto w-fit" style="max-width: 400px; width: 100%; height: auto;">
           @endif
           <div class="text-sm font-semibold flex flex-row-reverse">
               <p>by {{ $post->user->name }} | {{ $post->created_at->format('Y年m月d日') }}</p>
