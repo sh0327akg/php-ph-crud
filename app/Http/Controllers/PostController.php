@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -39,13 +40,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $inputs = $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required|max:1000',
-            'image' => 'image|max:1024'
-        ]);
+        $inputs = $request->validated();
         $post = new Post();
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
@@ -81,13 +78,9 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $inputs = $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required|max:1000',
-            'image' => 'image|max:1024'
-        ]);
+        $inputs = $request->validated();
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
         if ($request->file('image')){
