@@ -15,6 +15,7 @@
                 {{ $post->title }}
             </h1>
             <hr class="w-full">
+            <p>ベース：<strong>{{ $post->genre }}</strong></p>
         </div>
         @auth
           @if(Auth::user()->id == $post->user_id)

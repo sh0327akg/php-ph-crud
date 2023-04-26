@@ -19,7 +19,7 @@ class PostController extends Controller
 
         if($search){
             $posts = Post::where('title', 'like', "%{$search}%")
-                ->orWhere('body','like','%{$search}%')
+                ->orWhere('body','like',"%{$search}%")
                 ->orderBy('created_at', 'desc')->paginate(9)
                 ->appends(['search' => $search]);
         }else{
