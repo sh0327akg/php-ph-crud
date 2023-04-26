@@ -23,6 +23,16 @@
           <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body')}}</textarea>
         </div>
 
+        <div class="flex flex-col w-1/5">
+          <label for="genre" class="font-semibold leading-none mt-4">ベース</label>
+          <select name="genre" id="genre" class="w-auto py-2 border border-gray-300 rounded-md">
+            <option value="塩">塩</option>
+            <option value="醤油">醤油</option>
+            <option value="味噌">味噌</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
         <div class="w-full flex flex-col">
           <label for="image" class="font-semibold leading-none mt-4">画像（1MBまで）</label>
           <div>
