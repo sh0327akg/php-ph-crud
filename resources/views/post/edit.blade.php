@@ -23,6 +23,18 @@
           <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body',$post->body)}}</textarea>
         </div>
 
+        <div class="flex flex-col w-full">
+          <label for="genre" class="font-semibold leading-none mt-4">ベース</label>
+          <select name="genre" id="genre" class="w-auto py-2 border border-gray-300 rounded-md">
+            <option value="">選択してください</option>
+            <option value="塩" {{ old('genre',$post->genre) === '塩' ? 'selected' : ''}}>塩</option>
+            <option value="醤油" {{ old('genre',$post->genre) === '醤油' ? 'selected' : ''}}>醤油</option>
+            <option value="味噌" {{ old('genre',$post->genre) === '味噌' ? 'selected' : ''}}>味噌</option>
+            <option value="とんこつ" {{ old('genre',$post->genre) === 'とんこつ' ? 'selected' : ''}}>とんこつ</option>
+            <option value="その他"  {{ old('genre',$post->genre) === 'その他' ? 'selected' : ''}}>その他</option>
+          </select>
+        </div>
+
         <div class="w-full flex flex-col">
           @if($post->image)
             <div>

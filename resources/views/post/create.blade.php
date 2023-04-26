@@ -23,13 +23,15 @@
           <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body')}}</textarea>
         </div>
 
-        <div class="flex flex-col w-1/5">
+        <div class="flex flex-col w-full">
           <label for="genre" class="font-semibold leading-none mt-4">ベース</label>
           <select name="genre" id="genre" class="w-auto py-2 border border-gray-300 rounded-md">
-            <option value="塩">塩</option>
-            <option value="醤油">醤油</option>
-            <option value="味噌">味噌</option>
-            <option value="その他">その他</option>
+            <option value="">選択してください</option>
+            <option value="塩" {{ old('genre') === '塩' ? 'selected' : ''}}>塩</option>
+            <option value="醤油" {{ old('genre') === '醤油' ? 'selected' : ''}}>醤油</option>
+            <option value="味噌" {{ old('genre') === '味噌' ? 'selected' : ''}}>味噌</option>
+            <option value="とんこつ" {{ old('genre') === 'とんこつ' ? 'selected' : ''}}>とんこつ</option>
+            <option value="その他"  {{ old('genre') === 'その他' ? 'selected' : ''}}>その他</option>
           </select>
         </div>
 
