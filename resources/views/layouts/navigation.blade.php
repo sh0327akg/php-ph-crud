@@ -18,6 +18,10 @@
                     <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                         新規作成
                     </x-nav-link>
+                    <x-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
+                        マイページ
+                    </x-nav-link>
+
                 </div>
             </div>
 

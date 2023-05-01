@@ -57,4 +57,10 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function mypage()
+    {
+        $user = auth()->user();
+        $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(9);
+        return view('profile.mypage', compact('posts', 'user'));}
 }
