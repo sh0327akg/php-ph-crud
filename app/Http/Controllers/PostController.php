@@ -48,6 +48,7 @@ class PostController extends Controller
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
         $post->genre = $inputs['genre'];
+        $post->satisfaction = $inputs['satisfaction'];
         $post->user_id = auth()->user()->id;
         if ($request->file('image')){
             //s3アップロード開始
@@ -86,6 +87,7 @@ class PostController extends Controller
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
         $post->genre = $inputs['genre'];
+        $post->satisfaction = $inputs['satisfaction'];
         if ($request->file('image')){
             //s3アップロード開始
             $image = $request->file('image');

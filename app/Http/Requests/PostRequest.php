@@ -25,7 +25,8 @@ class PostRequest extends FormRequest
             'title' => 'required|max:255',
             'body' => 'required|max:1000',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'genre' => 'required|in:塩,醤油,味噌,とんこつ,その他'
+            'genre' => 'required|in:塩,醤油,味噌,とんこつ,その他',
+            'satisfaction' => 'required|integer|min:1|max:5'
         ];
     }
 }

@@ -34,8 +34,8 @@
               <div class="p-6">
                 <h1 class="ext-lg text-gray-700 font-semibold hover:underline cursor-pointer">{{ $post->title }}</h1>
                 <hr class="w-full">
-                <p class="leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
-                <span class="mt-3 text-sm font-semibold text-gray-600">
+                <p class="text-sm leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
+                <span class="mt-3 text-sm font-semibold text-gray-400">
                   <p>{{ $post->user->name }} | {{ $post->created_at->format('Y年m月d日')}}</p>
                 </span>
               </div>
