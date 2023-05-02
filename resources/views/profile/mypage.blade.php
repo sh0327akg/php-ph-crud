@@ -25,7 +25,7 @@
             <h2>my投稿一覧</h2>
             <div class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
               @foreach($posts as $post)
-              <div class="p-4 w-full md:w-1/3">
+              <div class="p-4 w-full md:w-1/3 text-left">
                 <a href="{{ route('post.show', $post)}}">
                   <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-lg">
                     <div class="lg:h-60 md:h-36 w-full overflow-hidden object-fill">
@@ -38,7 +38,7 @@
                       <div class="p-6">
                         <h1 class="ext-lg text-gray-700 font-semibold hover:underline cursor-pointer">{{ $post->title }}</h1>
                         <hr class="w-full">
-                        <p class="leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
+                        <p class="text-base leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
                         <span class="mt-3 text-sm font-semibold text-gray-600">
                           <p>{{ $post->created_at->format('Y年m月d日')}}</p>
                         </span>

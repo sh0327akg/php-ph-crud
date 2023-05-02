@@ -247,6 +247,7 @@ return [
         'username' => 'ユーザー名',
         'year' => '年',
         'genre' => 'ジャンル',
+        'satisfaction' => '満足度',
     ],
 
 ];

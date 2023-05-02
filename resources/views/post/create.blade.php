@@ -42,6 +42,16 @@
           </div>
         </div>
 
+        <div class="w-full flex flex-col">
+          <label for="satisfaction" class="font-semibold leading-none mt-4">満足度（5段階）</label>
+          <div class="star-rating">
+            @for($i = 1; $i <= 5; $i++)
+              <i class="fa-star far {{ old('satisfaction') >= $i ? 'fas' : '' }}"></i>
+            @endfor
+            <input type="hidden" name="satisfaction" value="{{ old('satisfaction') }}">
+          </div>
+        </div>
+
         <x-primary-button class="mt-4">
           送信する
         </x-primiary-button>
