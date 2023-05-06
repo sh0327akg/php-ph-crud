@@ -20,7 +20,9 @@
               @foreach($users as $user)
               <tr class="border-b dark:border-neutral-400">
                 <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $loop->index + 1 }}</td>
-                <td class="whitespace-nowrap px-6 py-4 overflow-hidden">{{ $user->name }}</td>
+                <td class="whitespace-nowrap px-6 py-4 overflow-hidden">
+                  <a href="{{ route('profile.show',$user->id) }}" class="hover:underline">{{ $user->name }}</a>
+                </td>
                 <td class="whitespace-nowrap px-6 py-4">{{ $user->total_score }}</td>
               </tr>
               @endforeach

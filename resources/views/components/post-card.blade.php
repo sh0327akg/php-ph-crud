@@ -15,6 +15,7 @@
       <p class="text-sm leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
     </div>
     <div class="px-6 py-4 sm:flex justify-between">
+
       <div class="flex justify-end">
         @if (Auth::user()->id !== $post->user_id)
           <div class="cursor-pointer p-2 rounded-full bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center">
@@ -24,8 +25,13 @@
               <i class="fas fa-heart text-pink-500" onclick="unlike({{$post->id}})"></i>
             @endif
           </div>
+        @else
+          <div class="cursor-not-allowed p-2 rounded-full bg-gray-300 inline-flex items-center justify-center">
+            <i class="fas fa-heart text-gray-400" disabled></i>
+          </div>
         @endif
       </div>
+
       <span class="text-sm font-semibold text-gray-400">
         <p>
             <a href="{{ route('profile.show', $post->user->id) }}" class="text-gray-400 hover:text-gray-600">
