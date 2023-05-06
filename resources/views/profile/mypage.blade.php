@@ -5,9 +5,9 @@
     </h2>
   </x-slot>
   <section class="text-gray-600 body-font">
-    <div class="container px-5 mx-auto flex flex-col">
-      <div class="mx-auto">
-        <div class="sm:flex-row mt-10">
+    <div class="container px-5 mx-auto flex flex-col justify-center">
+      <div class="sm:flex-row mt-10">
+
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
@@ -39,6 +39,9 @@
           <div class="font-semibold text-xl mt-4 pt-4 sm:mt-0">
             <!-- 自分の投稿 -->
             <div id="my-posts" class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
+              @if($posts->isEmpty())
+                <p>投稿がありません</p>
+              @endif
               @foreach($posts as $post)
                 <x-post-card :post="$post" />
               @endforeach
@@ -50,7 +53,10 @@
             <!-- いいね一覧 -->
             <div id="liked-posts" class="hidden">
               <div class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
-                @foreach($liked_posts as $like)
+                @if($liked_posts->isEmpty())
+                  <p>いいねした投稿がありません</p>
+                @endif
+                @foreach($liked_posts as $post)
                   <x-post-card :post="$post" />
                 @endforeach
                 <div class="w-full mt-4">
@@ -58,9 +64,8 @@
                 </div>
               </div>
             </div>
-
           </div>
-        </div>
+
       </div>
     </div>
   </section>
