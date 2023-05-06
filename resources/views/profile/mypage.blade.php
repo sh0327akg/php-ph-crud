@@ -19,35 +19,46 @@
               <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">{{ $user->name }}</h2>
               <div class="w-12 h-1 bg-orange-500 rounded mt-2 mb-4"></div>
             </div>
-            <div><p class="mb-4">投稿数: {{ $posts->count() }}</p></div>
+            <div><p class="mb-4">投稿数: {{ $posts->total() }}</p></div>
           </div>
-          <div class="font-semibold text-xl mt-4 pt-4 sm:mt-0 text-center">
-            <h2>my投稿一覧</h2>
-            <div class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
-              @foreach($posts as $post)
-              <div class="p-4 w-full md:w-1/3 text-left">
-                <a href="{{ route('post.show', $post)}}">
-                  <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-lg">
-                    <div class="lg:h-60 md:h-36 w-full overflow-hidden object-fill">
-                      @if($post->image)
-                        <img src="{{ $post->image }}" class="mx-auto object-center">
-                      @else
-                        <img src="{{ asset('images/default.jpg') }}" class="mx-auto object-center">
-                      @endif
-                    </div>
-                      <div class="p-6">
-                        <h1 class="ext-lg text-gray-700 font-semibold hover:underline cursor-pointer">{{ $post->title }}</h1>
-                        <hr class="w-full">
-                        <p class="text-base leading-relaxed my-3 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; max-height: 4.5em;">{{ \Illuminate\Support\Str::limit($post->body, 100) }}</p>
-                        <span class="mt-3 text-sm font-semibold text-gray-600">
-                          <p>{{ $post->created_at->format('Y年m月d日')}}</p>
-                        </span>
-                      </div>
-                  </div>
-                </a>
-              </div>
-              @endforeach
+
+          <!-- タブナビゲーション -->
+          <div class="mt-6">
+            <div class="border-b border-gray-200">
+              <nav class="-mb-px flex space-x-8">
+                <button id="my-posts-tab" class="border-orange-500 text-gray-900 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm focus:outline-none" onclick="switchTab('自分の投稿')">
+                  自分の投稿
+                </button>
+                <button id="liked-posts-tab" class="text-gray-500 hover:text-gray-700 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm focus:outline-none" onclick="switchTab('いいね一覧')">
+                  いいね一覧
+                </button>
+              </nav>
             </div>
+          </div>
+
+          <div class="font-semibold text-xl mt-4 pt-4 sm:mt-0">
+            <!-- 自分の投稿 -->
+            <div id="my-posts" class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
+              @foreach($posts as $post)
+                <x-post-card :post="$post" />
+              @endforeach
+              <div class="w-full mt-4">
+                {{ $posts->links() }}
+              </div>
+            </div>
+
+            <!-- いいね一覧 -->
+            <div id="liked-posts" class="hidden">
+              <div class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">
+                @foreach($liked_posts as $like)
+                  <x-post-card :post="$post" />
+                @endforeach
+                <div class="w-full mt-4">
+                  {{ $liked_posts->links() }}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
