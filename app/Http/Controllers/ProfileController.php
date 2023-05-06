@@ -61,6 +61,12 @@ class ProfileController extends Controller
     public function mypage()
     {
         $user = auth()->user();
-        $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(9);
-        return view('profile.mypage', compact('posts', 'user'));}
+        $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(9, ['*'], 'posts_page');
+        $liked_posts = $user->likes_posts()->orderBy('created_at', 'desc')->paginate(9, ['*'], 'liked_posts_page');
+        return view('profile.mypage', [
+            'user' => $user,
+            'posts' => $posts,
+            'liked_posts' => $liked_posts,
+        ]);
+    }
 }

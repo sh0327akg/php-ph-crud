@@ -39,6 +39,11 @@
         @if($post->image)
           <img src="{{ $post->image }}" class="mx-auto w-fit" style="max-width: 400px; width: 100%; height: auto;">
         @endif
+
+        <div class="like-button hover:cursor-pointer" data-post-id="{{ $post->id }}">
+          <i class="fas fa-heart{{ Auth::user() && Auth::user()->likes->contains($post->id) ? ' text-pink-500' : ' text-gray-400' }}"></i>
+          <span class="likes-count">{{ $post->likes->count() }}</span>
+        </div>
         
         <div class="text-sm font-semibold flex flex-row-reverse">
           <p>by {{ $post->user->name }} | {{ $post->created_at->format('Y年m月d日') }}</p>
