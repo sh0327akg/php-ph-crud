@@ -50,7 +50,7 @@
 
         <div class="w-full flex flex-col">
           <label for="satisfaction" class="font-semibold leading-none mt-4">満足度（5段階）</label>
-          <div class="star-rating">
+          <div class="star-rating hover:cursor-pointer">
             @for($i = 1; $i <= 5; $i++)
               <i class="fa-star far {{ old('satisfaction',isset($post) ? $post->satisfaction : null) >= $i ? 'fas' : '' }}"></i>
             @endfor

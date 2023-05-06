@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/mypage', [ProfileController::class, 'mypage'])->name('mypage');
+    Route::get('/user/{user}', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/ranking', [ProfileController::class, 'ranking'])->name('ranking');
     Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
     Route::delete('/unlike/{post}', [LikeController::class, 'destroy'])->name('unlike');
 });

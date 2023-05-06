@@ -246,7 +246,7 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
-        'genre' => 'ジャンル',
+        'genre' => 'ベース',
         'satisfaction' => '満足度',
     ],
 

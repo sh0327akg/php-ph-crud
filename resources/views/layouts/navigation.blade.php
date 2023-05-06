@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
                         マイページ
                     </x-nav-link>
+                    <x-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
+                        ランキング
+                    </x-nav-link>
 
                 </div>
             </div>
@@ -50,7 +53,9 @@
                         <x-dropdown-link  :href="route('mypage')" :active="request()->routeIs('mypage')">
                             マイページ
                         </x-dropdown-link>
-
+                        <x-dropdown-link :href="route('ranking')" :active="request()->routeIs('ranking')">
+                            ランキング
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -98,6 +103,12 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                     新規作成
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
+                    マイページ
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('ranking')" :active="request()->routeIs('ranking')">
+                    ランキング
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
