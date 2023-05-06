@@ -27,8 +27,14 @@
         @endif
       </div>
       <span class="text-sm font-semibold text-gray-400">
-        <p>{{ $post->user->name }} | {{ $post->created_at->format('Y年m月d日')}}</p>
-      </span>
+        <p>
+            <a href="{{ route('profile.show', $post->user->id) }}" class="text-gray-400 hover:text-gray-600">
+                {{ $post->user->name }}
+            </a>
+            | {{ $post->created_at->format('Y年m月d日')}}
+        </p>
+    </span>
+    
     </div>
   </div>
 </div>
