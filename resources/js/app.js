@@ -11,3 +11,14 @@ window.switchTab = switchTab;
 
 window.Alpine = Alpine;
 Alpine.start();
+
+const infoIcon = document.getElementById('info-icon');
+const tooltip = document.getElementById('tooltip');
+
+infoIcon.addEventListener('mouseover', () => {
+  tooltip.classList.remove('hidden');
+});
+
+infoIcon.addEventListener('mouseout', () => {
+  tooltip.classList.add('hidden');
+});
