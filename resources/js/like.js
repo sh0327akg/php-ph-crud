@@ -15,7 +15,7 @@ function updateLikeCount(postId, increment) {
   const likeCountElement = document.getElementById(`like-count-${postId}`);
   const currentCount = parseInt(likeCountElement.textContent.match(/\d+/)[0]);
   const newCount = increment ? currentCount + 1 : currentCount - 1;
-  likeCountElement.textContent = `いいね：${newCount}`;
+  likeCountElement.textContent = `${newCount}`;
 }
 
 

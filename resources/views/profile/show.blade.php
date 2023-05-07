@@ -8,7 +8,7 @@
     <div class="container px-5 mx-auto flex flex-col justify-center">
       <div class="sm:flex-row mt-10">
 
-          <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+          <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8 mx-auto">
             <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
@@ -21,6 +21,7 @@
             </div>
             <div><p class="mb-4">投稿数: {{ $posts->total() }}</p></div>
           </div>
+
           <div class="font-semibold text-xl mt-4 pt-4 sm:mt-0">
             <!-- 自分の投稿 -->
             <div id="my-posts" class="mx-auto px-4 py-4 flex flex-wrap sm:px-6 lg:px-8">

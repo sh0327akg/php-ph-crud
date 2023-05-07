@@ -87,10 +87,20 @@ class ProfileController extends Controller
         $user = auth()->user();
         $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(9, ['*'], 'posts_page');
         $liked_posts = $user->likes_posts()->orderBy('created_at', 'desc')->paginate(9, ['*'], 'liked_posts_page');
+
+        $total_likes = 0;
+        $total_satisfaction = 0;
+        foreach($user->posts as $post){
+            $total_likes += $post->likes->count();
+            $total_satisfaction += $post->satisfaction;
+        }
+
         return view('profile.mypage', [
             'user' => $user,
             'posts' => $posts,
             'liked_posts' => $liked_posts,
+            'total_likes' => $total_likes,
+            'total_satisfaction' => $total_satisfaction,
         ]);
     }
 

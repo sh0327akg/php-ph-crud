@@ -48,7 +48,7 @@
           @endif
         </div>
         <div class="m-4 inline-block">
-          <span id="like-count-{{ $post->id }}">いいね：{{ $post->likes->count() }}</span>
+          <span id="like-count-{{ $post->id }}">{{ $post->likes->count() }}</span>
         </div>
         
         <div class="text-sm font-semibold mt-4 text-gray-400">
