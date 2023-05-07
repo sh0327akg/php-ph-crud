@@ -42,13 +42,13 @@
 
         <div class="cursor-pointer p-2 rounded-full bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center">
           @if (!Auth::user()->is_like($post->id))
-            <i class="fas fa-heart text-gray-400" onclick="like({{$post->id}})"></i>
+          <i id="heart-{{$post->id}}" class="fas fa-heart text-gray-400" onclick="like({{$post->id}})"></i>
           @else
-            <i class="fas fa-heart text-pink-500" onclick="unlike({{$post->id}})"></i>
+          <i id="heart-{{$post->id}}" class="fas fa-heart text-pink-500" onclick="unlike({{$post->id}})"></i>
           @endif
         </div>
         <div class="m-4 inline-block">
-          <span>いいね：{{ $post->likes->count() }}</span>
+          <span id="like-count-{{ $post->id }}">いいね：{{ $post->likes->count() }}</span>
         </div>
         
         <div class="text-sm font-semibold mt-4 text-gray-400">

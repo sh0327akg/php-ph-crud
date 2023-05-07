@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Response;
 
 class LikeController extends Controller
 {
@@ -13,7 +14,7 @@ class LikeController extends Controller
         if (!$user->is_like($postId)) {
             $user->likes_posts()->attach($postId);
         }
-        return back();
+        return Response::json(['result' => 'success']);
     }
 
     public function destroy($postId)
@@ -22,6 +23,6 @@ class LikeController extends Controller
         if ($user->is_like($postId)) {
             $user->likes_posts()->detach($postId);
         }
-        return back();
+        return response()->json(['result' => 'success']);
     }
 }

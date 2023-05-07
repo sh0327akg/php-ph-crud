@@ -18,17 +18,19 @@
 
       <div class="flex justify-end">
         @if (Auth::user()->id !== $post->user_id)
-          <div class="cursor-pointer p-2 rounded-full bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center">
-            @if (!Auth::user()->is_like($post->id))
-              <i class="fas fa-heart text-gray-400" onclick="like({{$post->id}})"></i>
-            @else
-              <i class="fas fa-heart text-pink-500" onclick="unlike({{$post->id}})"></i>
-            @endif
-          </div>
+            <div class="cursor-pointer p-2 rounded-full bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center">
+                @if (!Auth::user()->is_like($post->id))
+                    <i id="heart-{{$post->id}}" class="fas fa-heart text-gray-400" onclick="like({{$post->id}})"></i>
+                @else
+                    <i id="heart-{{$post->id}}" class="fas fa-heart text-pink-500" onclick="unlike({{$post->id}})"></i>
+                @endif
+            </div>
+            <span id="like-count-{{ $post->id }}" class="text-sm">{{ $post->likes->count() }}</span>
         @else
-          <div class="cursor-not-allowed p-2 rounded-full bg-gray-300 inline-flex items-center justify-center">
-            <i class="fas fa-heart text-gray-400" disabled></i>
-          </div>
+            <div class="cursor-not-allowed p-2 rounded-full bg-gray-300 inline-flex items-center justify-center">
+                <i class="fas fa-heart text-gray-400" disabled></i>
+            </div>
+            <span class="text-sm mt-1 ml-2">{{ $post->likes->count() }}</span>
         @endif
       </div>
 
