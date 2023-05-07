@@ -3,6 +3,7 @@
 namespace App\Providers;
 use App\Models\Post;
 use App\Policy\PostPolicy;
+use Illuminate\Support\Facades\Gate;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
