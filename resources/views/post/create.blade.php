@@ -19,8 +19,12 @@
         </div>
 
         <div class="w-full flex flex-col">
-          <label for="body" class="font-semibold leading-none mt-4">本文</label>
-          <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body')}}</textarea>
+          <div class="flex items-center justify-between">
+            <label for="body" class="font-semibold leading-none mt-4">本文</label>
+            <a href="{{ route('help.index') }}" class="ml-2 text-white no-underlinep-1 rounded-md mt-4 p-1 bg-slate-700">AIをつかって文章を生成する
+            </a>
+          </div>
+          <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md mt-2" id="body" cols="30" rows="10">{{old('body')}}</textarea>
         </div>
 
         <div class="flex flex-col w-full">

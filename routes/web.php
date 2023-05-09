@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\HelpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
     Route::delete('/unlike/{post}', [LikeController::class, 'destroy'])->name('unlike');
 });
+
+
+Route::get('/help', [HelpController::class, 'index'])->name('help.index');
+Route::post('/help', [HelpController::class, 'generateText'])->name('help.generateText');
 
 Route::resource('post', PostController::class);
 
